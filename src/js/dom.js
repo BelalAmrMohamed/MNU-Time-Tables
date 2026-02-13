@@ -109,10 +109,10 @@ const DOMHelper = (() => {
               const typeClass = `type-${entry.source}`;
               html += `<div class="cell-content ${typeClass}">`;
               html += `<span class="cell-subject">${entry.subject}</span>`;
-              if (entry.instructor) {
+              if (entry.instructor && entry.instructor != "") {
                 html += `<span class="cell-detail"><span class="detail-icon">👤</span>${entry.instructor}</span>`;
               }
-              if (entry.location) {
+              if (entry.location && entry.location != "") {
                 html += `<span class="cell-detail"><span class="detail-icon">📍</span>${entry.location}</span>`;
               }
               html += "</div>";
@@ -130,7 +130,6 @@ const DOMHelper = (() => {
         <div class="timetable-legend">
           <span class="legend-item"><span class="legend-dot lecture"></span>محاضرة</span>
           <span class="legend-item"><span class="legend-dot lab"></span>معمل</span>
-          <span class="legend-item"><span class="legend-dot section"></span>سكشن</span>
         </div>
       `;
 

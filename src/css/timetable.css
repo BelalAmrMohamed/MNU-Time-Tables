@@ -116,14 +116,10 @@
   border-right: 3px solid var(--clr-primary);
 }
 
-.cell-content.type-lab {
+.cell-content.type-lab,
+.cell-content.type-section {
   background: rgba(0, 206, 201, 0.12);
   border-right: 3px solid var(--clr-accent);
-}
-
-.cell-content.type-section {
-  background: rgba(253, 121, 168, 0.12);
-  border-right: 3px solid #fd79a8;
 }
 
 .cell-subject {
@@ -178,9 +174,6 @@
 }
 .legend-dot.lab {
   background: var(--clr-accent);
-}
-.legend-dot.section {
-  background: #fd79a8;
 }
 
 /* --- Responsive --- */

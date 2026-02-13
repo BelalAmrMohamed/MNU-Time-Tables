@@ -3,6 +3,20 @@
    Supports Arabic text via embedded font
    ============================================================ */
 
+const loadPdfLib = () =>
+  new Promise((resolve, reject) => {
+    if (window.jspdf && window.jspdf.jsPDF) {
+      resolve();
+      return;
+    }
+    const s = document.createElement("script");
+    s.src =
+      "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
+    s.onload = resolve;
+    s.onerror = () => reject(new Error("PDF library failed to load"));
+    document.head.appendChild(s);
+  });
+
 const Exporter = (() => {
   const dayNameMap = {
     Saturday: "السبت",
@@ -63,6 +77,13 @@ const Exporter = (() => {
 
   return {
     async generatePDF() {
+      try {
+        await loadPdfLib();
+      } catch {
+        console.log("PDF library could not be loaded.");
+        alert("PDF library could not be loaded.");
+        return;
+      }
       const state = AppState.get();
       const merged = AppState.getMergedSchedule();
       if (!merged) return;
