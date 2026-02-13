@@ -75,7 +75,7 @@
 .timetable thead th:first-child {
   color: var(--clr-text-muted);
   font-size: 0.8rem;
-  width: 110px;
+  width: 90px;
 }
 
 /* --- Table Body Cells --- */
@@ -88,15 +88,17 @@
   height: 80px;
 }
 
-.timetable tbody td:first-child {
-  font-size: 0.78rem;
+.timetable tbody td:first-child,
+.timetable tbody td.day-cell {
+  font-size: 0.85rem;
   font-weight: 700;
-  color: var(--clr-text-muted);
-  background: rgba(255, 255, 255, 0.02);
+  color: var(--clr-accent);
+  background: rgba(108, 92, 231, 0.06);
   white-space: nowrap;
   text-align: center;
   vertical-align: middle;
-  width: 110px;
+  width: 90px;
+  letter-spacing: 0.02em;
 }
 
 /* --- Cell Content (Subject Card) --- */

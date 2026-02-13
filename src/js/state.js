@@ -23,6 +23,11 @@ const AppState = (() => {
       _listeners.forEach((fn) => fn({ ..._state }));
     },
 
+    /** Update state without notifying subscribers (for batched changes) */
+    setSilent(key, value) {
+      _state[key] = value;
+    },
+
     /** Navigate to a specific step */
     goToStep(step) {
       _state.currentStep = step;

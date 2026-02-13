@@ -74,34 +74,36 @@ const DOMHelper = (() => {
       }
     },
 
-    /** Render the Timetable */
+    /** Render the Timetable — Days as rows, Time slots as columns */
     renderTimetable(merged) {
       if (!merged) return;
 
-      const { grid, days } = merged;
+      const { grid, days, timeSlots } = merged;
       const container = $("#timetable-container");
 
-      // Build HTML table
+      // Build HTML table (transposed: days = rows, times = columns)
       let html = '<table class="timetable">';
 
-      // Header row
+      // Header row: first cell = "اليوم", then one <th> per time slot
       html += "<thead><tr>";
-      html += "<th>الوقت</th>";
-      days.forEach((day) => {
-        html += `<th>${dayNameMap[day] || day}</th>`;
+      html += "<th>اليوم</th>";
+      timeSlots.forEach((slot) => {
+        html += `<th>${slot}</th>`;
       });
       html += "</tr></thead>";
 
-      // Body rows
+      // Body rows: one row per day
       html += "<tbody>";
-      grid.forEach((row) => {
+      days.forEach((day) => {
         html += "<tr>";
-        // Time cell — convert to Arabic-friendly display
-        html += `<td>${row.time}</td>`;
+        html += `<td class="day-cell">${dayNameMap[day] || day}</td>`;
 
-        days.forEach((day) => {
-          const entries = row.cells[day];
-          if (entries.length === 0) {
+        timeSlots.forEach((slot) => {
+          // Find the grid row matching this time slot
+          const gridRow = grid.find((r) => r.time === slot);
+          const entries = gridRow ? gridRow.cells[day] : [];
+
+          if (!entries || entries.length === 0) {
             html += '<td><span class="cell-empty">—</span></td>';
           } else {
             html += "<td>";
@@ -109,10 +111,10 @@ const DOMHelper = (() => {
               const typeClass = `type-${entry.source}`;
               html += `<div class="cell-content ${typeClass}">`;
               html += `<span class="cell-subject">${entry.subject}</span>`;
-              if (entry.instructor && entry.instructor != "") {
+              if (entry.instructor && entry.instructor !== "") {
                 html += `<span class="cell-detail"><span class="detail-icon">👤</span>${entry.instructor}</span>`;
               }
-              if (entry.location && entry.location != "") {
+              if (entry.location && entry.location !== "") {
                 html += `<span class="cell-detail"><span class="detail-icon">📍</span>${entry.location}</span>`;
               }
               html += "</div>";
@@ -141,7 +143,7 @@ const DOMHelper = (() => {
       const summary = $("#selection-summary");
       const groupNum = groupId.replace("G", "");
       const sectionNum = sectionId.replace("S", "");
-      summary.textContent = `المجموعة ${groupNum} — الشعبة ${sectionNum}`;
+      summary.textContent = `Group ${groupNum} — Section ${sectionNum}`;
     },
   };
 })();

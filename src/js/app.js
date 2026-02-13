@@ -80,7 +80,8 @@
   }
 
   function handleSectionSelect(sectionId) {
-    AppState.set("selectedSection", sectionId);
+    // Set state silently (no subscriber notification) to avoid double render
+    AppState.setSilent("selectedSection", sectionId);
 
     // Render the timetable
     const merged = AppState.getMergedSchedule();
@@ -90,6 +91,7 @@
     const state = AppState.get();
     updateSummary(state.selectedGroup, state.selectedSection);
 
+    // Single goToStep call triggers subscriber → showStep() exactly once
     AppState.goToStep(3);
   }
 })();
