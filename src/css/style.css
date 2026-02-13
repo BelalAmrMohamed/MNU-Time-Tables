@@ -209,3 +209,11 @@ body {
     padding: 1.5rem 1rem 1rem;
   }
 }
+
+/* --- Print settings --- */
+@media print {
+  .app-header,
+  .app-footer {
+    display: none;
+  }
+}
