@@ -1,15 +1,9 @@
 /* ============================================================
-   export.js — IMPROVED PDF Export using jsPDF + autoTable
+   export.js — PDF Export using jsPDF + autoTable
    • Larger, more readable fonts
    • RTL layout with days on the right
-   • Optimized page size for content (slide-like format)
-   • Better spacing and visual hierarchy
    ============================================================ */
 
-/**
- * Inject a <script> tag and return a Promise that resolves on load.
- * Removes any previously-failed script with the same src before retrying.
- */
 function _loadScript(src) {
   return new Promise((resolve, reject) => {
     const existing = document.querySelector(`script[src="${src}"]`);
@@ -23,9 +17,6 @@ function _loadScript(src) {
   });
 }
 
-/**
- * Load jsPDF (base) + autoTable (plugin) sequentially.
- */
 async function _loadPdfLibraries() {
   if (!window.jspdf?.jsPDF) {
     await _loadScript(
@@ -93,23 +84,24 @@ const Exporter = (() => {
   /* ---------- Enhanced Color Palette ---------- */
 
   const COLORS = {
-    primary: [108, 92, 231], // #6c5ce7
-    primaryDark: [88, 72, 211],
-    accent: [0, 206, 201], // #00cec9
-    accentDark: [0, 184, 180],
-    headerBg: [108, 92, 231],
+    primary: [108, 92, 231],
+    primaryDark: [78, 62, 195],
+    accent: [0, 206, 201],
+    accentDark: [0, 170, 166],
+    headerBg: [88, 72, 211],
     headerText: [255, 255, 255],
     rowEven: [255, 255, 255],
-    rowOdd: [250, 249, 254],
-    dayCellBg: [237, 233, 254],
-    dayCellText: [60, 45, 140],
-    border: [210, 208, 235],
-    textDark: [30, 30, 50],
-    textMuted: [100, 100, 120],
-    labBg: [220, 252, 251],
-    labBorder: [0, 206, 201],
-    lectureBg: [243, 241, 255],
+    rowOdd: [243, 241, 255], // more visible alternation
+    dayCellBg: [225, 218, 254], // stronger purple tint
+    dayCellText: [50, 35, 130],
+    border: [200, 196, 230],
+    textDark: [25, 25, 45],
+    textMuted: [90, 90, 115],
+    labBg: [200, 248, 246], // more saturated teal
+    labBorder: [0, 180, 176],
+    lectureBg: [228, 222, 255], // more saturated purple
     lectureBorder: [108, 92, 231],
+    emptyText: [180, 178, 200],
   };
 
   /* ---------- Main Export ---------- */
@@ -178,14 +170,16 @@ const Exporter = (() => {
       doc.setLineWidth(0.5);
       doc.line(marginLeft, 32, pageW - marginRight, 32);
 
-      // ── Build Table Data (RTL: time slots first, day last) ──
+      // ── Build Table Data (RTL) ──
       const { grid, days, timeSlots } = merged;
 
-      // For RTL, we reverse the column order: time slots first, then day
-      // This makes the day column appear on the RIGHT in RTL mode
+      // Reverse time slots so RTL reads: earliest on RIGHT → latest on LEFT
+      const reversedSlots = [...timeSlots].reverse();
+
+      // Day column LAST so it appears on the RIGHT in the rendered PDF
       const columns = [
-        ...timeSlots.map((t) => ({ header: t, dataKey: t })),
-        { header: "اليوم", dataKey: "day" }, // Day column LAST for RTL
+        ...reversedSlots.map((t) => ({ header: t, dataKey: t })),
+        { header: "اليوم", dataKey: "day" },
       ];
 
       // One row per day
@@ -222,27 +216,27 @@ const Exporter = (() => {
         // Note: This affects text direction within cells and column order
         styles: {
           font: fontName,
-          fontSize: 10.5, // Increased from 7.5
-          cellPadding: { top: 5, right: 5, bottom: 5, left: 5 }, // More padding
+          fontSize: 11,
+          cellPadding: { top: 5, right: 5, bottom: 5, left: 5 },
           halign: "center",
           valign: "middle",
-          lineWidth: 0.3,
+          lineWidth: 0.35,
           lineColor: COLORS.border,
           textColor: COLORS.textDark,
           overflow: "linebreak",
           cellWidth: "wrap",
-          minCellHeight: 14, // Ensure minimum height for readability
+          minCellHeight: 16,
         },
 
         headStyles: {
           fillColor: COLORS.headerBg,
           textColor: COLORS.headerText,
-          fontSize: 12, // Increased from 8.5
+          fontSize: 13,
           fontStyle: "bold",
           halign: "center",
           valign: "middle",
           cellPadding: { top: 6, right: 5, bottom: 6, left: 5 },
-          lineWidth: 0.4,
+          lineWidth: 0.5,
           lineColor: COLORS.primaryDark,
         },
 
@@ -252,18 +246,18 @@ const Exporter = (() => {
 
         bodyStyles: {
           fillColor: COLORS.rowEven,
-          lineWidth: 0.3,
+          lineWidth: 0.35,
         },
 
         columnStyles: {
           day: {
-            cellWidth: 28, // Slightly wider for larger font
+            cellWidth: 28,
             fontStyle: "bold",
             fillColor: COLORS.dayCellBg,
             textColor: COLORS.dayCellText,
             halign: "center",
-            fontSize: 12, // Increased from 9
-            lineWidth: 0.4,
+            fontSize: 13,
+            lineWidth: 0.5,
             lineColor: COLORS.primary,
           },
         },
@@ -293,10 +287,10 @@ const Exporter = (() => {
               data.cell.styles.lineWidth = 0.4;
               data.cell.styles.lineColor = COLORS.lectureBorder;
             }
-            // Empty cells: lighter styling
+            // Empty cells: subtle dash
             else if (val === "—") {
-              data.cell.styles.textColor = COLORS.textMuted;
-              data.cell.styles.fontSize = 14;
+              data.cell.styles.textColor = COLORS.emptyText;
+              data.cell.styles.fontSize = 16;
             }
           }
         },
