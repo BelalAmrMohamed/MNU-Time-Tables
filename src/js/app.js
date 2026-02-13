@@ -75,7 +75,7 @@
   }
 
   function handleGroupSelect(groupId) {
-    AppState.set("selectedGroup", groupId);
+    AppState.setSilent("selectedGroup", groupId);
     AppState.goToStep(2);
   }
 

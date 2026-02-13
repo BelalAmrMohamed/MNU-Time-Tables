@@ -1,21 +1,20 @@
 /* ============================================================
-   export.js — PDF Export using jsPDF + autoTable
-   • Dynamically loads libraries on first use (lazy)
-   • Supports Arabic text via Amiri font
-   • Transposed layout: Days = rows, Times = columns
+   export.js — IMPROVED PDF Export using jsPDF + autoTable
+   • Larger, more readable fonts
+   • RTL layout with days on the right
+   • Optimized page size for content (slide-like format)
+   • Better spacing and visual hierarchy
    ============================================================ */
 
 /**
  * Inject a <script> tag and return a Promise that resolves on load.
- * Skips injection if the script is already present.
+ * Removes any previously-failed script with the same src before retrying.
  */
 function _loadScript(src) {
   return new Promise((resolve, reject) => {
-    // Check if already loaded
-    if (document.querySelector(`script[src="${src}"]`)) {
-      resolve();
-      return;
-    }
+    const existing = document.querySelector(`script[src="${src}"]`);
+    if (existing) existing.remove();
+
     const script = document.createElement("script");
     script.src = src;
     script.onload = () => resolve();
@@ -26,26 +25,23 @@ function _loadScript(src) {
 
 /**
  * Load jsPDF (base) + autoTable (plugin) sequentially.
- * autoTable depends on jsPDF, so order matters.
  */
 async function _loadPdfLibraries() {
-  // If already loaded, skip
-  if (
-    window.jspdf?.jsPDF &&
-    typeof window.jspdf.jsPDF.API?.autoTable === "function"
-  ) {
-    return;
+  if (!window.jspdf?.jsPDF) {
+    await _loadScript(
+      "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js",
+    );
   }
 
-  // 1. Load jsPDF base
-  await _loadScript(
-    "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js",
-  );
+  if (!window.jspdf?.jsPDF) {
+    throw new Error("jsPDF failed to register on window.jspdf");
+  }
 
-  // 2. Load autoTable plugin (registers itself on jsPDF)
-  await _loadScript(
-    "https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js",
-  );
+  if (typeof window.jspdf.jsPDF.API?.autoTable !== "function") {
+    await _loadScript(
+      "https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js",
+    );
+  }
 }
 
 /* ------------------------------------------------------------ */
@@ -94,23 +90,26 @@ const Exporter = (() => {
     doc.setFont("Amiri");
   }
 
-  /* ---------- Color Palette ---------- */
+  /* ---------- Enhanced Color Palette ---------- */
 
   const COLORS = {
     primary: [108, 92, 231], // #6c5ce7
-    primaryLight: [237, 233, 254], // very light purple
+    primaryDark: [88, 72, 211],
     accent: [0, 206, 201], // #00cec9
-    accentLight: [224, 255, 254], // very light teal
+    accentDark: [0, 184, 180],
     headerBg: [108, 92, 231],
     headerText: [255, 255, 255],
     rowEven: [255, 255, 255],
-    rowOdd: [248, 247, 254],
-    dayCellBg: [243, 241, 255],
-    border: [220, 218, 240],
+    rowOdd: [250, 249, 254],
+    dayCellBg: [237, 233, 254],
+    dayCellText: [60, 45, 140],
+    border: [210, 208, 235],
     textDark: [30, 30, 50],
-    textMuted: [120, 120, 140],
-    labBg: [230, 255, 254],
-    lectureBg: [240, 237, 255],
+    textMuted: [100, 100, 120],
+    labBg: [220, 252, 251],
+    labBorder: [0, 206, 201],
+    lectureBg: [243, 241, 255],
+    lectureBorder: [108, 92, 231],
   };
 
   /* ---------- Main Export ---------- */
@@ -120,7 +119,8 @@ const Exporter = (() => {
       // 1. Load libraries dynamically
       try {
         await _loadPdfLibraries();
-      } catch {
+      } catch (err) {
+        console.error("PDF library loading failed:", err);
         alert("فشل تحميل مكتبة PDF. يرجى التحقق من اتصال الإنترنت.");
         return;
       }
@@ -133,51 +133,59 @@ const Exporter = (() => {
       // 3. Pre-load Arabic font
       await _loadArabicFont();
 
-      // 4. Create document (landscape A4)
+      // 4. Create document with optimized slide-like dimensions
+      // Using 297mm × 210mm (A4 landscape) but will optimize margins
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF({
         orientation: "landscape",
         unit: "mm",
-        format: "a4",
+        format: "a4", // 297 × 210 mm
       });
 
       _applyFont(doc);
 
-      const pageW = doc.internal.pageSize.getWidth();
-      const pageH = doc.internal.pageSize.getHeight();
+      const pageW = doc.internal.pageSize.getWidth(); // 297mm
+      const pageH = doc.internal.pageSize.getHeight(); // 210mm
       const fontName = _fontData ? "Amiri" : "helvetica";
       const groupNum = state.selectedGroup.replace("G", "");
       const sectionNum = state.selectedSection.replace("S", "");
 
-      // ── Header Accent Bar ───────────────────────────
-      doc.setFillColor(...COLORS.primary);
-      doc.rect(0, 0, pageW, 3, "F");
+      // ── Margins (reduced for more table space) ──
+      const marginTop = 10;
+      const marginRight = 10;
+      const marginBottom = 10;
+      const marginLeft = 10;
 
-      // ── Title ───────────────────────────────────────
+      // ── Header Accent Bar (thicker, more prominent) ──
+      doc.setFillColor(...COLORS.primary);
+      doc.rect(0, 0, pageW, 5, "F");
+
+      // ── Title (larger, more prominent) ──
       doc.setFont(fontName, "normal");
-      doc.setFontSize(20);
+      doc.setFontSize(24);
       doc.setTextColor(...COLORS.textDark);
       const title = "الجدول الدراسي";
-      doc.text(title, pageW - 14, 16, { align: "right" });
+      doc.text(title, pageW - marginRight, 18, { align: "right" });
 
-      // ── Subtitle ───────────────────────────────────
-      doc.setFontSize(11);
+      // ── Subtitle (larger) ──
+      doc.setFontSize(13);
       doc.setTextColor(...COLORS.textMuted);
       const subtitle = `المجموعة ${groupNum} — الشعبة ${sectionNum}  |  الفصل الدراسي الثاني ٢٠٢٥–٢٠٢٦`;
-      doc.text(subtitle, pageW - 14, 23, { align: "right" });
+      doc.text(subtitle, pageW - marginRight, 27, { align: "right" });
 
-      // ── Thin separator line ────────────────────────
+      // ── Separator line ──
       doc.setDrawColor(...COLORS.border);
-      doc.setLineWidth(0.4);
-      doc.line(14, 27, pageW - 14, 27);
+      doc.setLineWidth(0.5);
+      doc.line(marginLeft, 32, pageW - marginRight, 32);
 
-      // ── Build Table Data (transposed: days=rows, times=columns) ──
+      // ── Build Table Data (RTL: time slots first, day last) ──
       const { grid, days, timeSlots } = merged;
 
-      // Column headers: "اليوم" + each time slot
+      // For RTL, we reverse the column order: time slots first, then day
+      // This makes the day column appear on the RIGHT in RTL mode
       const columns = [
-        { header: "اليوم", dataKey: "day" },
         ...timeSlots.map((t) => ({ header: t, dataKey: t })),
+        { header: "اليوم", dataKey: "day" }, // Day column LAST for RTL
       ];
 
       // One row per day
@@ -202,34 +210,40 @@ const Exporter = (() => {
         return rowData;
       });
 
-      // ── Render Table ────────────────────────────────
+      // ── Render Table with RTL and improved styling ──
       doc.autoTable({
         columns,
         body: rows,
-        startY: 31,
+        startY: 37,
         theme: "grid",
         tableWidth: "auto",
 
+        // Enable RTL for the entire table
+        // Note: This affects text direction within cells and column order
         styles: {
           font: fontName,
-          fontSize: 7.5,
-          cellPadding: { top: 3, right: 3, bottom: 3, left: 3 },
+          fontSize: 10.5, // Increased from 7.5
+          cellPadding: { top: 5, right: 5, bottom: 5, left: 5 }, // More padding
           halign: "center",
           valign: "middle",
-          lineWidth: 0.25,
+          lineWidth: 0.3,
           lineColor: COLORS.border,
           textColor: COLORS.textDark,
           overflow: "linebreak",
           cellWidth: "wrap",
+          minCellHeight: 14, // Ensure minimum height for readability
         },
 
         headStyles: {
           fillColor: COLORS.headerBg,
           textColor: COLORS.headerText,
-          fontSize: 8.5,
+          fontSize: 12, // Increased from 8.5
           fontStyle: "bold",
           halign: "center",
-          cellPadding: { top: 4, right: 3, bottom: 4, left: 3 },
+          valign: "middle",
+          cellPadding: { top: 6, right: 5, bottom: 6, left: 5 },
+          lineWidth: 0.4,
+          lineColor: COLORS.primaryDark,
         },
 
         alternateRowStyles: {
@@ -238,50 +252,86 @@ const Exporter = (() => {
 
         bodyStyles: {
           fillColor: COLORS.rowEven,
+          lineWidth: 0.3,
         },
 
         columnStyles: {
           day: {
-            cellWidth: 24,
+            cellWidth: 28, // Slightly wider for larger font
             fontStyle: "bold",
             fillColor: COLORS.dayCellBg,
+            textColor: COLORS.dayCellText,
             halign: "center",
-            fontSize: 9,
+            fontSize: 12, // Increased from 9
+            lineWidth: 0.4,
+            lineColor: COLORS.primary,
           },
         },
 
         didParseCell(data) {
-          // Color-code lecture vs lab cells
+          // Enhanced color-coding with borders
           if (data.section === "body" && data.column.dataKey !== "day") {
             const val = String(data.cell.raw || "");
+
+            // Lab cells: distinct background with accent border
             if (
               val.includes("Lab") ||
               val.includes("معمل") ||
               val.includes("lab")
             ) {
               data.cell.styles.fillColor = COLORS.labBg;
-            } else if (
+              data.cell.styles.lineWidth = 0.5;
+              data.cell.styles.lineColor = COLORS.labBorder;
+            }
+            // Lecture cells: subtle background with primary border
+            else if (
               val.includes("Lec") ||
               val.includes("محاضرة") ||
               (val !== "—" && val.length > 2)
             ) {
               data.cell.styles.fillColor = COLORS.lectureBg;
+              data.cell.styles.lineWidth = 0.4;
+              data.cell.styles.lineColor = COLORS.lectureBorder;
+            }
+            // Empty cells: lighter styling
+            else if (val === "—") {
+              data.cell.styles.textColor = COLORS.textMuted;
+              data.cell.styles.fontSize = 14;
             }
           }
         },
 
-        margin: { top: 31, right: 14, bottom: 20, left: 14 },
+        // Optimized margins for maximum table width
+        margin: {
+          top: 37,
+          right: marginRight,
+          bottom: marginBottom + 8,
+          left: marginLeft,
+        },
 
         didDrawPage(data) {
-          // Accent bar on every page
+          // Top accent bar on every page
           doc.setFillColor(...COLORS.primary);
-          doc.rect(0, 0, pageW, 3, "F");
+          doc.rect(0, 0, pageW, 5, "F");
+
+          // Page number (if multiple pages)
+          const pageCount = doc.internal.getNumberOfPages();
+          if (pageCount > 1) {
+            doc.setFontSize(9);
+            doc.setTextColor(...COLORS.textMuted);
+            doc.text(
+              `صفحة ${data.pageNumber} من ${pageCount}`,
+              pageW / 2,
+              pageH - 4,
+              { align: "center" },
+            );
+          }
         },
       });
 
-      // ── Footer ──────────────────────────────────────
-      const finalY = doc.lastAutoTable?.finalY || pageH - 30;
-      doc.setFontSize(7);
+      // ── Footer ──
+      const finalY = doc.lastAutoTable?.finalY || pageH - 25;
+      doc.setFontSize(8.5); // Larger footer text
       doc.setTextColor(...COLORS.textMuted);
 
       const dateStr = new Date().toLocaleDateString("ar-EG", {
@@ -290,15 +340,14 @@ const Exporter = (() => {
         day: "numeric",
       });
       const footer = `تم التصدير بتاريخ ${dateStr}`;
-      doc.text(footer, pageW / 2, Math.min(finalY + 10, pageH - 8), {
-        align: "center",
-      });
+      const footerY = Math.min(finalY + 12, pageH - 6);
+      doc.text(footer, pageW / 2, footerY, { align: "center" });
 
-      // ── Bottom accent bar ──────────────────────────
+      // ── Bottom accent bar (thicker) ──
       doc.setFillColor(...COLORS.accent);
-      doc.rect(0, pageH - 2, pageW, 2, "F");
+      doc.rect(0, pageH - 3, pageW, 3, "F");
 
-      // ── Save ────────────────────────────────────────
+      // ── Save ──
       doc.save(`Timetable_G${groupNum}_S${sectionNum}.pdf`);
     },
   };
