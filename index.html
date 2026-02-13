@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="بوابة الجدول الدراسي لطلاب السنة الثانية - جامعة MNU" />
+    <title>الجدول الدراسي | MNU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="src/css/wizard.css" />
+    <link rel="stylesheet" href="src/css/timetable.css" />
+</head>
+
+<body>
+    <!-- Ambient Background Blobs -->
+    <div class="bg-blobs" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div id="app">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="logo">📅 الجدول الدراسي</h1>
+                <p class="subtitle">الفصل الدراسي الثاني — السنة الثانية</p>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main id="main-content" class="main-content">
+            <!-- Step 1: Group Selection -->
+            <section id="step-group" class="wizard-step active">
+                <div class="step-card">
+                    <div class="step-indicator">
+                        <span class="step-number active">١</span>
+                        <span class="step-line"></span>
+                        <span class="step-number">٢</span>
+                    </div>
+                    <h2 class="step-title">اختر المجموعة</h2>
+                    <p class="step-desc">اختر المجموعة الخاصة بك لعرض جدول المحاضرات</p>
+                    <div id="group-buttons" class="selection-grid group-grid">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2: Section Selection -->
+            <section id="step-section" class="wizard-step">
+                <div class="step-card">
+                    <div class="step-indicator">
+                        <span class="step-number done">✓</span>
+                        <span class="step-line active-line"></span>
+                        <span class="step-number active">٢</span>
+                    </div>
+                    <h2 class="step-title">اختر الشعبة</h2>
+                    <p class="step-desc">اختر الشعبة الخاصة بك لعرض جدول السكاشن</p>
+                    <div id="section-buttons" class="selection-grid section-grid">
+                        <!-- Filled by JS -->
+                    </div>
+                    <button id="back-to-group" class="back-btn" aria-label="العودة لاختيار المجموعة">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        العودة
+                    </button>
+                </div>
+            </section>
+
+            <!-- Step 3: Timetable Display -->
+            <section id="step-timetable" class="wizard-step">
+                <div class="timetable-header">
+                    <div class="timetable-info">
+                        <h2 class="step-title">جدولك الدراسي</h2>
+                        <p id="selection-summary" class="selection-summary"></p>
+                    </div>
+                    <div class="timetable-actions">
+                        <button id="download-pdf" class="action-btn pdf-btn" aria-label="تحميل PDF">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            تحميل PDF
+                        </button>
+                        <button id="back-to-section" class="back-btn" aria-label="العودة لاختيار الشعبة">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            تغيير الاختيار
+                        </button>
+                    </div>
+                </div>
+                <div id="timetable-container" class="timetable-container">
+                    <!-- Filled by JS -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>جدول الفصل الدراسي الثاني — ٢٠٢٥-٢٠٢٦</p>
+        </footer>
+    </div>
+
+    <!-- jsPDF CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js"></script>
+
+    <!-- App Scripts -->
+    <script src="src/js/state.js"></script>
+    <script src="src/js/dom.js"></script>
+    <script src="src/js/export.js"></script>
+    <script src="src/js/app.js"></script>
+</body>
+
+</html>

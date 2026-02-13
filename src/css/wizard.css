@@ -1,0 +1,276 @@
+/* ============================================================
+   wizard.css — Wizard Step Cards, Selection Buttons, Transitions
+   ============================================================ */
+
+/* --- Wizard Steps --- */
+.wizard-step {
+  display: none;
+  width: 100%;
+  max-width: 700px;
+  animation: stepFadeIn 0.5s var(--transition-smooth) forwards;
+}
+
+.wizard-step.active {
+  display: block;
+}
+
+@keyframes stepFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* --- Step Card --- */
+.step-card {
+  background: var(--clr-surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+/* --- Step Indicator (Stepper Dots) --- */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: var(--clr-surface-hover);
+  color: var(--clr-text-muted);
+  border: 2px solid var(--clr-border);
+  transition: var(--transition-smooth);
+}
+
+.step-number.active {
+  background: var(--clr-primary);
+  color: #fff;
+  border-color: var(--clr-primary);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.step-number.done {
+  background: var(--clr-accent);
+  color: #fff;
+  border-color: var(--clr-accent);
+  box-shadow: var(--shadow-glow-accent);
+  font-size: 1rem;
+}
+
+.step-line {
+  width: 60px;
+  height: 2px;
+  background: var(--clr-border);
+  border-radius: 1px;
+  transition: var(--transition-smooth);
+}
+
+.step-line.active-line {
+  background: linear-gradient(90deg, var(--clr-accent), var(--clr-primary));
+}
+
+/* --- Step Title & Description --- */
+.step-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--clr-text-heading);
+  margin-bottom: 0.5rem;
+}
+
+.step-desc {
+  font-size: 0.9rem;
+  color: var(--clr-text-muted);
+  margin-bottom: 2rem;
+}
+
+/* --- Selection Grid --- */
+.selection-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.group-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.section-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* --- Selection Button --- */
+.select-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 1.25rem 0.75rem;
+  background: var(--clr-surface);
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  color: var(--clr-text);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  overflow: hidden;
+}
+
+.select-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--clr-primary-glow), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.select-btn:hover {
+  border-color: var(--clr-border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.select-btn:hover::before {
+  opacity: 1;
+}
+
+.select-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.select-btn .btn-label {
+  position: relative;
+  z-index: 1;
+}
+
+.select-btn .btn-icon {
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Group button specific colors --- */
+.select-btn[data-group="G1"] {
+  --clr-primary-glow: rgba(108, 92, 231, 0.3);
+}
+.select-btn[data-group="G2"] {
+  --clr-primary-glow: rgba(0, 206, 201, 0.3);
+}
+.select-btn[data-group="G3"] {
+  --clr-primary-glow: rgba(253, 121, 168, 0.3);
+}
+
+.select-btn[data-group="G1"]:hover {
+  border-color: rgba(108, 92, 231, 0.5);
+  box-shadow: 0 0 30px rgba(108, 92, 231, 0.25);
+}
+.select-btn[data-group="G2"]:hover {
+  border-color: rgba(0, 206, 201, 0.5);
+  box-shadow: 0 0 30px rgba(0, 206, 201, 0.25);
+}
+.select-btn[data-group="G3"]:hover {
+  border-color: rgba(253, 121, 168, 0.5);
+  box-shadow: 0 0 30px rgba(253, 121, 168, 0.25);
+}
+
+/* --- Back Button --- */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.75rem;
+  padding: 0.6rem 1.25rem;
+  background: transparent;
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  color: var(--clr-text-muted);
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.back-btn:hover {
+  border-color: var(--clr-border-hover);
+  color: var(--clr-text);
+  background: var(--clr-surface-hover);
+}
+
+/* --- Action Button (Download) --- */
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition-fast);
+}
+
+.pdf-btn {
+  background: linear-gradient(135deg, var(--clr-primary), #5a4bdb);
+  color: #fff;
+  box-shadow: 0 4px 16px var(--clr-primary-glow);
+}
+
+.pdf-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px var(--clr-primary-glow);
+}
+
+.pdf-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .step-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .group-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .section-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .step-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
