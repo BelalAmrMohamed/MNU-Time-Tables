@@ -42,13 +42,13 @@
         "Saturday": [
           {
             "time": "09:00 - 11:00",
-            "subject": "Server Lab (AI334)",
+            "subject": "Server Lab",
             "instructor": "Dr. Hassan Shabaan",
             "location": "Building G (T-01)"
           },
           {
             "time": "03:00 - 05:00",
-            "subject": "Server Lab",
+            "subject": "Server Lab (Section)",
             "instructor": "Dr. Hassan Shabaan",
             "location": "Building G (T-01)"
           }
@@ -56,7 +56,7 @@
         "Sunday": [
           {
             "time": "09:00 - 11:00",
-            "subject": "System Analysis and Design Lec (AIS231)",
+            "subject": "System Analysis and Design",
             "instructor": "Dr. Ebtsam",
             "location": "Building G (T-02)"
           }
@@ -64,7 +64,7 @@
         "Monday": [
           {
             "time": "11:00 - 01:00",
-            "subject": "Data Structure Lec (ACS211)",
+            "subject": "Data Structure",
             "instructor": "Dr. Ahmed Omar",
             "location": "Building G (T-02)"
           }
@@ -72,7 +72,7 @@
         "Tuesday": [
           {
             "time": "11:00 - 01:00",
-            "subject": "Database Mang. Lec",
+            "subject": "Database Management",
             "instructor": "Dr. Sara Dakrory",
             "location": "Building G (S-01)"
           }
@@ -80,13 +80,13 @@
         "Wednesday": [
           {
             "time": "09:00 - 11:00",
-            "subject": "Probability and Statistics Lec (AMA203)",
+            "subject": "Probability and Statistics",
             "instructor": "Dr. Hossam Radwan",
             "location": "Building G (T-01)"
           },
           {
             "time": "01:00 - 03:00",
-            "subject": "AI Lec (ACS361)",
+            "subject": "AI",
             "instructor": "Dr. Alaa Zaki",
             "location": "Building G (T-02)"
           }
@@ -102,7 +102,7 @@
           },
           {
             "time": "03:00 - 05:00",
-            "subject": "Server Lab",
+            "subject": "Server Lab (Section)",
             "instructor": "Dr. Hassan Shabaan",
             "location": "Building G (T-01)"
           }
@@ -110,7 +110,7 @@
         "Sunday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "System Analysis and Design Lec (AIS231)",
+            "subject": "System Analysis and Design",
             "instructor": "Dr. Ebtsam",
             "location": "Building G (T-02)"
           }
@@ -118,13 +118,13 @@
         "Monday": [
           {
             "time": "09:00 - 11:00",
-            "subject": "Data Structure Lec (ACS211)",
+            "subject": "Data Structure",
             "instructor": "Dr. Ahmed Omar",
             "location": "Building G (T-02)"
           },
           {
             "time": "11:00 - 01:00",
-            "subject": "Database Mang. Lec",
+            "subject": "Database Management",
             "instructor": "Dr. Sara Dakrory",
             "location": "Building G (S-01)"
           }
@@ -132,13 +132,13 @@
         "Wednesday": [
           {
             "time": "09:00 - 11:00",
-            "subject": "AI Lec (ACS361)",
+            "subject": "AI",
             "instructor": "Dr. Alaa Zaki",
             "location": "Building G (T-02)"
           },
           {
             "time": "11:00 - 01:00",
-            "subject": "Probability and Statistics Lec (AMA203)",
+            "subject": "Probability and Statistics",
             "instructor": "Dr. Hossam Radwan",
             "location": "Building G (T-01)"
           }
@@ -148,7 +148,7 @@
         "Saturday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "Server Lab",
+            "subject": "Server Lab (Section)",
             "instructor": "Dr. Hassan Shabaan",
             "location": "Building G (T-01)"
           }
@@ -156,7 +156,7 @@
         "Sunday": [
           {
             "time": "11:00 - 01:00",
-            "subject": "System Analysis and Design Lec (AIS231)",
+            "subject": "System Analysis and Design",
             "instructor": "Dr. Ebtsam",
             "location": "Building G (T-02)"
           }
@@ -164,15 +164,15 @@
         "Monday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "Database Mang. Lec",
+            "subject": "Data Structure",
             "instructor": "Dr. Sara Dakrory",
             "location": "Building G (S-01)"
           }
         ],
         "Tuesday": [
           {
-            "time": "03:00 - 05:00",
-            "subject": "Database Mang. Lec",
+            "time": "01:00 - 03:00",
+            "subject": "Database Management",
             "instructor": "Dr. Sara Dakrory",
             "location": "Building G (S-01)"
           }
@@ -180,14 +180,20 @@
         "Wednesday": [
           {
             "time": "11:00 - 01:00",
-            "subject": "AI Lec (ACS361)",
+            "subject": "AI",
             "instructor": "Dr. Alaa Zaki",
             "location": "Building G (T-02)"
           },
           {
             "time": "01:00 - 03:00",
-            "subject": "Probability and Statistics Lec (AMA203)",
+            "subject": "Probability and Statistics",
             "instructor": "Dr. Hossam Radwan",
+            "location": "Building G (T-01)"
+          },
+          {
+            "time": "03:00 - 05:00",
+            "subject": "Server Lab",
+            "instructor": "Dr. Hassan Shabaan",
             "location": "Building G (T-01)"
           }
         ]
@@ -205,7 +211,7 @@
         "Monday": [
           {
             "time": "09:00 - 11:00",
-            "subject": "Data Structure Lab",
+            "subject": "Data Structure",
             "location": "Lab 5"
           }
         ],
@@ -239,8 +245,8 @@
         "Monday": [
           {
             "time": "09:00 - 11:00",
-            "subject": "Data Structure Lab",
-            "location": "Lab 5"
+            "subject": "Data Structure",
+            "location": "Lab 6"
           }
         ],
         "Tuesday": [
@@ -268,7 +274,7 @@
         "Monday": [
           {
             "time": "09:00 - 11:00",
-            "subject": "Data Structure Lab",
+            "subject": "Data Structure",
             "location": "Lab 7"
           }
         ],
@@ -336,6 +342,11 @@
         ],
         "Monday": [
           {
+            "time": "01:00 - 03:00",
+            "subject": "Data Structure",
+            "location": "Lab 6"
+          },
+          {
             "time": "03:00 - 05:00",
             "subject": "System Analysis and Design",
             "location": "Lab 5,6"
@@ -346,7 +357,7 @@
         "Saturday": [
           {
             "time": "11:00 - 01:00",
-            "subject": "Data Structure Lab",
+            "subject": "Data Structure",
             "location": "Lab 7"
           },
           {
@@ -369,8 +380,7 @@
         "Monday": [
           {
             "time": "03:00 - 05:00",
-            "subject": "System Analysis and Design",
-            "location": "Lab 5,6"
+            "subject": "System Analysis and Design"
           }
         ]
       },
@@ -399,21 +409,15 @@
         ],
         "Monday": [
           {
-            "time": "01:00 - 03:00",
-            "subject": "Database Mang. Lab",
-            "location": "Lab 6,7"
-          },
-          {
             "time": "03:00 - 05:00",
-            "subject": "System Analysis and Design",
-            "location": "Lab 7,8"
+            "subject": "Data Structure",
+            "location": "Lab 5"
           }
         ],
-        "Tuesday": [
+        "Wednesday": [
           {
-            "time": "11:00 - 01:00",
-            "subject": "Data Structure Lab",
-            "location": "Lab 5,6,7"
+            "time": "03:00 - 05:00",
+            "subject": "Probability and Statistics Lab"
           }
         ]
       },
@@ -442,26 +446,15 @@
         ],
         "Monday": [
           {
-            "time": "01:00 - 03:00",
-            "subject": "Database Mang. Lab",
-            "location": "Lab 6,7"
-          },
-          {
             "time": "03:00 - 05:00",
-            "subject": "System Analysis and Design",
-            "location": "Lab 7,8"
+            "subject": "Data Structure",
+            "location": "Lab 6"
           }
         ],
-        "Tuesday": [
-          {
-            "time": "11:00 - 01:00",
-            "subject": "Data Structure Lab",
-            "location": "Lab 5,6,7"
-          },
+        "Wednesday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "Probability and Statistics",
-            "location": "Lab 8,9,12"
+            "subject": "Probability and Statistics Lab"
           }
         ]
       },
@@ -469,7 +462,7 @@
         "Saturday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "Data Structure Lab",
+            "subject": "Data Structure",
             "location": "Lab 7"
           }
         ],
@@ -536,7 +529,7 @@
         "Tuesday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "Data Structure Lab",
+            "subject": "Data Structure",
             "location": "Lab 7"
           },
           {
@@ -559,27 +552,21 @@
             "location": "Lab 1"
           },
           {
-            "time": "09:00 - 11:00",
+            "time": "03:00 - 5:00",
             "subject": "System Analysis and Design"
           }
         ],
         "Monday": [
           {
-            "time": "01:00 - 03:00",
-            "subject": "System Analysis and Design",
-            "location": "Lab 11,12"
-          },
-          {
             "time": "03:00 - 05:00",
-            "subject": "Database Mang. Lab",
-            "location": "Lab 6,7"
+            "subject": "Data Structure",
+            "location": "Lab 7"
           }
         ],
-        "Tuesday": [
+        "Wednesday": [
           {
-            "time": "11:00 - 01:00",
-            "subject": "Data Structure Lab",
-            "location": "Lab 5,6,7"
+            "time": "03:00 - 05:00",
+            "subject": "Probability and Statistics Lab"
           }
         ]
       },
@@ -587,7 +574,7 @@
         "Saturday": [
           {
             "time": "09:00 - 11:00",
-            "subject": "Data Structure Lab",
+            "subject": "Data Structure",
             "location": "Lab 7"
           }
         ],
@@ -630,6 +617,15 @@
       "S13": {
         "Monday": [
           {
+            "time": "09:00 - 11:00",
+            "subject": "System Analysis and Design"
+          },
+          {
+            "time": "11:00 - 01:00",
+            "subject": "Data Structure",
+            "location": "Lab 5"
+          },
+          {
             "time": "03:00 - 05:00",
             "subject": "AI Lab",
             "location": "Lab 1"
@@ -638,7 +634,7 @@
         "Tuesday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "Data Structure Lab",
+            "subject": "Data Structure",
             "location": "Lab 5,6,7"
           },
           {
@@ -659,7 +655,7 @@
         "Saturday": [
           {
             "time": "03:00 - 05:00",
-            "subject": "Data Structure Lab",
+            "subject": "Data Structure",
             "location": "Lab 7"
           }
         ],
@@ -703,10 +699,21 @@
             "subject": "Probability and Statistics"
           }
         ],
+        "Monday": [
+          {
+            "time": "09:00 - 11:00",
+            "subject": "System Analysis and Design"
+          },
+          {
+            "time": "11:00 - 01:00",
+            "subject": "Data Structure",
+            "location": "Lab 6"
+          }
+        ],
         "Tuesday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "Data Structure Lab",
+            "subject": "Data Structure",
             "location": "Lab 5,6,7"
           },
           {
@@ -743,26 +750,16 @@
         ],
         "Monday": [
           {
-            "time": "03:00 - 05:00",
-            "subject": "System Analysis and Design",
-            "location": "Lab 14,16"
-          },
-          {
-            "time": "03:00 - 05:00",
-            "subject": "AI Lab",
-            "location": "Lab 2.5"
+            "time": "11:00 - 01:00",
+            "subject": "Data Structure",
+            "location": "Lab 5"
           }
         ],
         "Tuesday": [
           {
-            "time": "01:00 - 03:00",
-            "subject": "Data Structure Lab",
-            "location": "Lab 5,6,7"
-          },
-          {
-            "time": "03:00 - 05:00",
+            "time": "11:00 - 01:00",
             "subject": "Database Mang. Lab",
-            "location": "Lab 4,7"
+            "location": "Lab 7"
           }
         ]
       }
