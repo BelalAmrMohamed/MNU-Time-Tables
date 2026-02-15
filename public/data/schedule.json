@@ -206,6 +206,10 @@
             "time": "01:00 - 03:00",
             "subject": "AI",
             "location": "Lab 1"
+          },
+          {
+            "time": "03:00 - 05:00",
+            "subject": "System Analysis and Design"
           }
         ],
         "Monday": [
@@ -218,14 +222,14 @@
         "Tuesday": [
           {
             "time": "09:00 - 11:00",
-            "subject": "Database Mang. Lab",
+            "subject": "Database Management",
             "location": "Lab 4"
           }
         ],
         "Wednesday": [
           {
             "time": "11:00 - 01:00",
-            "subject": "Probability and Statistics Lab"
+            "subject": "Probability and Statistics"
           }
         ]
       },
@@ -233,7 +237,7 @@
         "Saturday": [
           {
             "time": "11:00 - 01:00",
-            "subject": "Probability and Statistics Lab"
+            "subject": "Probability and Statistics"
           }
         ],
         "Sunday": [
@@ -252,14 +256,14 @@
         "Tuesday": [
           {
             "time": "09:00 - 11:00",
-            "subject": "Database Mang. Lab",
+            "subject": "Database Management",
             "location": "Lab 4"
           }
         ],
         "Wednesday": [
           {
             "time": "11:00 - 01:00",
-            "subject": "AI Lab",
+            "subject": "AI",
             "location": "Lab 2"
           }
         ]
@@ -269,6 +273,11 @@
           {
             "time": "01:00 - 03:00",
             "subject": "System Analysis and Design"
+          },
+          {
+            "time": "03:00 - 05:00",
+            "subject": "AI",
+            "location": "Lab 2"
           }
         ],
         "Monday": [
@@ -281,14 +290,14 @@
         "Tuesday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "Database Mang. Lab",
+            "subject": "Database Management",
             "location": "Lab 4"
           }
         ],
         "Wednesday": [
           {
             "time": "11:00 - 01:00",
-            "subject": "Probability and Statistics Lab"
+            "subject": "Probability and Statistics"
           }
         ]
       },
@@ -296,27 +305,31 @@
         "Saturday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "Probability and Statistics Lab"
+            "subject": "Probability and Statistics"
           }
         ],
         "Sunday": [
           {
+            "time": "01:00 - 03:00",
+            "subject": "System Analysis and Design"
+          },
+          {
             "time": "03:00 - 05:00",
-            "subject": "AI Lab",
+            "subject": "AI",
             "location": "Lab 5"
           }
         ],
         "Monday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "Database Mang. Lab",
+            "subject": "Data Structure",
             "location": "Lab 5"
           }
         ],
         "Tuesday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "Database Mang. Lab",
+            "subject": "Database Management",
             "location": "Lab 7"
           }
         ]
@@ -331,12 +344,12 @@
         "Sunday": [
           {
             "time": "11:00 - 01:00",
-            "subject": "AI Lab",
+            "subject": "AI",
             "location": "Lab 2"
           },
           {
             "time": "01:00 - 03:00",
-            "subject": "Database Mang. Lab",
+            "subject": "Database Management",
             "location": "Lab 6"
           }
         ],
@@ -368,12 +381,12 @@
         "Sunday": [
           {
             "time": "11:00 - 01:00",
-            "subject": "AI Lab",
+            "subject": "AI",
             "location": "Lab 5"
           },
           {
             "time": "01:00 - 03:00",
-            "subject": "Database Mang. Lab",
+            "subject": "Database Management",
             "location": "Lab 7"
           }
         ],
@@ -394,7 +407,7 @@
         "Sunday": [
           {
             "time": "09:00 - 11:00",
-            "subject": "AI Lab",
+            "subject": "AI",
             "location": "Lab 2"
           },
           {
@@ -403,7 +416,7 @@
           },
           {
             "time": "03:00 - 05:00",
-            "subject": "Database Mang. Lab",
+            "subject": "Database Management",
             "location": "Lab 6"
           }
         ],
@@ -417,7 +430,7 @@
         "Wednesday": [
           {
             "time": "03:00 - 05:00",
-            "subject": "Probability and Statistics Lab"
+            "subject": "Probability and Statistics"
           }
         ]
       },
@@ -431,7 +444,7 @@
         "Sunday": [
           {
             "time": "09:00 - 11:00",
-            "subject": "AI Lab",
+            "subject": "AI",
             "location": "Lab 5"
           },
           {
@@ -440,7 +453,7 @@
           },
           {
             "time": "03:00 - 05:00",
-            "subject": "Database Mang. Lab",
+            "subject": "Database Management",
             "location": "Lab 7"
           }
         ],
@@ -454,7 +467,7 @@
         "Wednesday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "Probability and Statistics Lab"
+            "subject": "Probability and Statistics"
           }
         ]
       },
@@ -473,32 +486,19 @@
           },
           {
             "time": "11:00 - 01:00",
-            "subject": "Database Mang. Lab",
+            "subject": "Database Management",
             "location": "Lab 6"
           },
           {
             "time": "03:00 - 05:00",
-            "subject": "AI Lab",
+            "subject": "AI",
             "location": "Lab 1"
           }
         ],
-        "Monday": [
+        "Wednesday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "System Analysis and Design",
-            "location": "Lab 9,10"
-          },
-          {
-            "time": "03:00 - 05:00",
-            "subject": "Database Mang. Lab",
-            "location": "Lab 6,7"
-          }
-        ],
-        "Tuesday": [
-          {
-            "time": "01:00 - 03:00",
-            "subject": "Probability and Statistics",
-            "location": "Lab 8,9,12"
+            "subject": "Probability and Statistics"
           }
         ]
       },
@@ -510,32 +510,26 @@
           },
           {
             "time": "11:00 - 01:00",
-            "subject": "Database Mang. Lab",
+            "subject": "Database Management",
             "location": "Lab 7"
           }
         ],
         "Monday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "System Analysis and Design",
-            "location": "Lab 9,10"
-          },
-          {
-            "time": "03:00 - 05:00",
-            "subject": "Database Mang. Lab",
-            "location": "Lab 6,7"
-          }
-        ],
-        "Tuesday": [
-          {
-            "time": "01:00 - 03:00",
             "subject": "Data Structure",
             "location": "Lab 7"
+          }
+        ],
+        "Wednesday": [
+          {
+            "time": "01:00 - 03:00",
+            "subject": "AI",
+            "location": "Lab 2"
           },
           {
             "time": "03:00 - 05:00",
-            "subject": "AI Lab",
-            "location": "Lab 2"
+            "subject": "Probability and Statistics"
           }
         ]
       },
@@ -543,12 +537,12 @@
         "Sunday": [
           {
             "time": "09:00 - 11:00",
-            "subject": "Database Mang. Lab",
+            "subject": "Database Management",
             "location": "Lab 6"
           },
           {
             "time": "11:00 - 01:00",
-            "subject": "AI Lab",
+            "subject": "AI",
             "location": "Lab 1"
           },
           {
@@ -566,7 +560,7 @@
         "Wednesday": [
           {
             "time": "03:00 - 05:00",
-            "subject": "Probability and Statistics Lab"
+            "subject": "Probability and Statistics"
           }
         ]
       },
@@ -581,7 +575,7 @@
         "Sunday": [
           {
             "time": "09:00 - 11:00",
-            "subject": "Database Mang. Lab",
+            "subject": "Database Management",
             "location": "Lab 7"
           },
           {
@@ -589,32 +583,26 @@
             "subject": "System Analysis and Design"
           }
         ],
-        "Monday": [
+        "Wednesday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "System Analysis and Design",
-            "location": "Lab 11,12"
+            "subject": "Probability and Statistics"
           },
           {
             "time": "03:00 - 05:00",
-            "subject": "Database Mang. Lab",
-            "location": "Lab 6,7"
-          }
-        ],
-        "Tuesday": [
-          {
-            "time": "01:00 - 03:00",
-            "subject": "Probability and Statistics",
-            "location": "Lab 8,9,12"
-          },
-          {
-            "time": "03:00 - 05:00",
-            "subject": "AI Lab",
+            "subject": "AI",
             "location": "Lab 2"
           }
         ]
       },
       "S13": {
+        "Sunday": [
+          {
+            "time": "09:00 - 11:00",
+            "subject": "AI",
+            "location": "Lab 1"
+          }
+        ],
         "Monday": [
           {
             "time": "09:00 - 11:00",
@@ -624,30 +612,19 @@
             "time": "11:00 - 01:00",
             "subject": "Data Structure",
             "location": "Lab 5"
-          },
-          {
-            "time": "03:00 - 05:00",
-            "subject": "AI Lab",
-            "location": "Lab 1"
           }
         ],
         "Tuesday": [
           {
-            "time": "01:00 - 03:00",
-            "subject": "Data Structure",
-            "location": "Lab 5,6,7"
-          },
-          {
             "time": "03:00 - 05:00",
-            "subject": "Database Mang. Lab",
+            "subject": "Database Management",
             "location": "Lab 4,7"
           }
         ],
         "Wednesday": [
           {
-            "time": "01:00 - 03:00",
-            "subject": "Probability and Statistics",
-            "location": "Lab 13,14"
+            "time": "09:00 - 11:00",
+            "subject": "Probability and Statistics"
           }
         ]
       },
@@ -661,8 +638,8 @@
         ],
         "Sunday": [
           {
-            "time": "03:00 - 05:00",
-            "subject": "AI Lab",
+            "time": "01:00 - 03:00",
+            "subject": "AI",
             "location": "Lab 2"
           },
           {
@@ -670,23 +647,16 @@
             "subject": "System Analysis and Design"
           }
         ],
-        "Monday": [
-          {
-            "time": "03:00 - 05:00",
-            "subject": "System Analysis and Design",
-            "location": "Lab 14,16"
-          }
-        ],
         "Tuesday": [
           {
             "time": "03:00 - 05:00",
-            "subject": "Database Mang. Lab",
+            "subject": "Database Management",
             "location": "Lab 4,7"
           }
         ],
         "Wednesday": [
           {
-            "time": "01:00 - 03:00",
+            "time": "09:00 - 11:00",
             "subject": "Probability and Statistics",
             "location": "Lab 13,14"
           }
@@ -712,20 +682,15 @@
         ],
         "Tuesday": [
           {
-            "time": "01:00 - 03:00",
-            "subject": "Data Structure",
-            "location": "Lab 5,6,7"
-          },
-          {
-            "time": "03:00 - 05:00",
-            "subject": "Database Mang. Lab",
+            "time": "11:00 - 01:00",
+            "subject": "Database Management",
             "location": "Lab 4,7"
           }
         ],
         "Wednesday": [
           {
-            "time": "01:00 - 03:00",
-            "subject": "AI Lab",
+            "time": "09:00 - 11:00",
+            "subject": "AI",
             "location": "Lab 2"
           }
         ]
@@ -740,7 +705,7 @@
         "Sunday": [
           {
             "time": "01:00 - 03:00",
-            "subject": "AI Lab",
+            "subject": "AI",
             "location": "Lab 5"
           },
           {
@@ -752,13 +717,13 @@
           {
             "time": "11:00 - 01:00",
             "subject": "Data Structure",
-            "location": "Lab 5"
+            "location": "Lab 7"
           }
         ],
         "Tuesday": [
           {
             "time": "11:00 - 01:00",
-            "subject": "Database Mang. Lab",
+            "subject": "Database Management",
             "location": "Lab 7"
           }
         ]
