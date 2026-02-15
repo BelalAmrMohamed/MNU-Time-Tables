@@ -361,8 +361,7 @@
           },
           {
             "time": "03:00 - 05:00",
-            "subject": "System Analysis and Design",
-            "location": "Lab 5,6"
+            "subject": "System Analysis and Design"
           }
         ]
       },
@@ -618,7 +617,7 @@
           {
             "time": "03:00 - 05:00",
             "subject": "Database Management",
-            "location": "Lab 4,7"
+            "location": "Lab 4"
           }
         ],
         "Wednesday": [
@@ -651,14 +650,13 @@
           {
             "time": "03:00 - 05:00",
             "subject": "Database Management",
-            "location": "Lab 4,7"
+            "location": "Lab 7"
           }
         ],
         "Wednesday": [
           {
             "time": "09:00 - 11:00",
-            "subject": "Probability and Statistics",
-            "location": "Lab 13,14"
+            "subject": "Probability and Statistics"
           }
         ]
       },
@@ -684,7 +682,7 @@
           {
             "time": "11:00 - 01:00",
             "subject": "Database Management",
-            "location": "Lab 4,7"
+            "location": "Lab 4"
           }
         ],
         "Wednesday": [
