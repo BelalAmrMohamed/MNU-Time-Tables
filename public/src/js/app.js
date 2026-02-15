@@ -17,7 +17,7 @@
 
   // --- Load Schedule Data ---
   try {
-    const response = await fetch("public/data/schedule.json");
+    const response = await fetch("data/schedule.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     AppState.set("scheduleData", data);

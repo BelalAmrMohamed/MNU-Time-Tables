@@ -212,6 +212,8 @@
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition-fast);
+
+  /* direction: ltr; */
 }
 
 .back-btn:hover {
