@@ -205,6 +205,7 @@
           {
             "time": "01:00 - 03:00",
             "subject": "AI",
+            "instructor": "Dr. Soher",
             "location": "Lab 1"
           },
           {
@@ -264,6 +265,8 @@
           {
             "time": "11:00 - 01:00",
             "subject": "AI",
+            "instructor": "Dr. Salman Mohamed",
+
             "location": "Lab 2"
           }
         ]
@@ -277,6 +280,7 @@
           {
             "time": "03:00 - 05:00",
             "subject": "AI",
+            "instructor": "Dr. Zeinab",
             "location": "Lab 2"
           }
         ],
@@ -316,6 +320,8 @@
           {
             "time": "03:00 - 05:00",
             "subject": "AI",
+            "instructor": "Dr. Salman Mohamed",
+
             "location": "Lab 5"
           }
         ],
@@ -345,6 +351,7 @@
           {
             "time": "11:00 - 01:00",
             "subject": "AI",
+            "instructor": "Dr. Zeinab",
             "location": "Lab 2"
           },
           {
@@ -381,6 +388,8 @@
           {
             "time": "11:00 - 01:00",
             "subject": "AI",
+            "instructor": "Dr. Salman Mohamed",
+
             "location": "Lab 5"
           },
           {
@@ -407,6 +416,7 @@
           {
             "time": "09:00 - 11:00",
             "subject": "AI",
+            "instructor": "Dr. Zeinab",
             "location": "Lab 2"
           },
           {
@@ -444,6 +454,8 @@
           {
             "time": "09:00 - 11:00",
             "subject": "AI",
+            "instructor": "Dr. Salman Mohamed",
+
             "location": "Lab 5"
           },
           {
@@ -491,6 +503,7 @@
           {
             "time": "03:00 - 05:00",
             "subject": "AI",
+            "instructor": "Dr. Soher",
             "location": "Lab 1"
           }
         ],
@@ -524,6 +537,8 @@
           {
             "time": "01:00 - 03:00",
             "subject": "AI",
+            "instructor": "Dr. Salman Mohamed",
+
             "location": "Lab 2"
           },
           {
@@ -542,6 +557,7 @@
           {
             "time": "11:00 - 01:00",
             "subject": "AI",
+            "instructor": "Dr. Soher",
             "location": "Lab 1"
           },
           {
@@ -590,6 +606,8 @@
           {
             "time": "03:00 - 05:00",
             "subject": "AI",
+            "instructor": "Dr. Salman Mohamed",
+
             "location": "Lab 2"
           }
         ]
@@ -599,6 +617,7 @@
           {
             "time": "09:00 - 11:00",
             "subject": "AI",
+            "instructor": "Dr. Soher",
             "location": "Lab 1"
           }
         ],
@@ -639,6 +658,8 @@
           {
             "time": "01:00 - 03:00",
             "subject": "AI",
+            "instructor": "Dr. Salman Mohamed",
+
             "location": "Lab 2"
           },
           {
@@ -689,6 +710,7 @@
           {
             "time": "09:00 - 11:00",
             "subject": "AI",
+            "instructor": "Dr. Zeinab",
             "location": "Lab 2"
           }
         ]
@@ -704,6 +726,8 @@
           {
             "time": "01:00 - 03:00",
             "subject": "AI",
+            "instructor": "Dr. Salman Mohamed",
+
             "location": "Lab 5"
           },
           {
