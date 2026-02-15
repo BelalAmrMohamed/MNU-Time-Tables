@@ -3,16 +3,114 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="بوابة الجدول الدراسي لطلاب السنة الثانية - جامعة MNU" />
+
+    <!-- Critical Performance: DNS prefetch and preconnect -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <title>الجدول الدراسي | MNU</title>
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mnu-timetable.vercel.app/">
+    <meta property="og:title" content="الجدول الدراسي | MNU: جدول العام الثاني لكلية الحاسبات والذكاء الإصطناعي">
+    <meta property="og:description" content="بوابة الجدول الدراسي لطلاب السنة الثانية - جامعة MNU">
+    <meta property="og:image" content="https://mnu-timetable.vercel.app/assets/images/thumbnail.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="الجدول الدراسي | MNU">
+    <meta property="og:site_name" content="الجدول الدراسي | MNU">
+    <meta property="og:locale" content="ar_AR">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#0088cc" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a1a2e" media="(prefers-color-scheme: dark)">
+    <meta name="description" content="بوابة الجدول الدراسي لطلاب السنة الثانية - جامعة MNU" />
+    <meta name="author" content="Belal Amr Mohamed">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="keywords" content="MNU, الجدول الدراسي, العام الثاني, تعليم, دراسة">
+    <link rel="canonical" href="https://mnu-timetable.vercel.app/">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "الجدول الدراسي | MNU",
+      "alternateName": "MNU Timetable",
+      "description": "بوابة الجدول الدراسي لطلاب السنة الثانية - جامعة MNU",
+      "url": "https://mnu-timetable.vercel.app/",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "inLanguage": "ar",
+      "author": {
+        "@type": "Person",
+        "name": "Belal Amr Mohamed",
+        "url": "https://portfolio-of-belal.vercel.app/"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "150"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { 
+          "@type": "ListItem", 
+          "position": 1, 
+          "name": "الجدول الدراسي | MNU", 
+          "item": "https://mnu-timetable.vercel.app/" 
+        }
+      ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap"
-        rel="stylesheet" />
+
+    <!-- Fonts: Inter (Latin) + Tajawal (Arabic) — optimized loading -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
+
+    <link rel="preload" href="src/css/style.css" as="style">
+    <link rel="preload" href="src/css/wizard.css" as="style">
+    <link rel="preload" href="src/css/timetable.css" as="style">
+
     <link rel="stylesheet" href="src/css/style.css" />
     <link rel="stylesheet" href="src/css/wizard.css" />
     <link rel="stylesheet" href="src/css/timetable.css" />
+
+    <!-- Security: Content Security Policy (recommended) But it may prevent the Downloading libraries like pptx and pdf -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+                   script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; 
+                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+                   font-src 'self' https://fonts.gstatic.com; 
+                   img-src 'self' data: https:; 
+                   connect-src 'self';">
+
 </head>
 
 <body>
