@@ -179,16 +179,16 @@
         ],
         "Wednesday": [
           {
-            "time": "09:00 - 11:00",
-            "subject": "Probability and Statistics Lec (AMA203)",
-            "instructor": "Dr. Hossam Radwan",
-            "location": "Building G (T-01)"
-          },
-          {
-            "time": "01:00 - 03:00",
+            "time": "11:00 - 01:00",
             "subject": "AI Lec (ACS361)",
             "instructor": "Dr. Alaa Zaki",
             "location": "Building G (T-02)"
+          },
+          {
+            "time": "01:00 - 03:00",
+            "subject": "Probability and Statistics Lec (AMA203)",
+            "instructor": "Dr. Hossam Radwan",
+            "location": "Building G (T-01)"
           }
         ]
       }
