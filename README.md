@@ -3,7 +3,7 @@
 ## Domains
 
 - Testing Domain: [https://belalamrmohamed.github.io/MNU-Time-Tables/](https://belalamrmohamed.github.io/MNU-Time-Tables/)
-- Production Domain: [https://mnu-timetable.vercel.app/](https://mnu-timetable.vercel.app/)
+- Production Domain: [https://mnu-time-tables.vercel.app/](https://mnu-time-tables.vercel.app/)
 
 ## Problems
 
