@@ -435,12 +435,6 @@
             "subject": "Data Structure",
             "location": "Lab 5"
           }
-        ],
-        "Wednesday": [
-          {
-            "time": "03:00 - 05:00",
-            "subject": "Probability and Statistics"
-          }
         ]
       },
       "S8": {
@@ -473,12 +467,6 @@
             "time": "03:00 - 05:00",
             "subject": "Data Structure",
             "location": "Lab 6"
-          }
-        ],
-        "Wednesday": [
-          {
-            "time": "01:00 - 03:00",
-            "subject": "Probability and Statistics"
           }
         ]
       },
